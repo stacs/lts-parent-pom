@@ -1,0 +1,38 @@
+name: Maven Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      dryRun:
+        description: "Should the maven release plugin do a dry run"
+        type: boolean
+        required: true
+        default: false
+      releaseVersion:
+        description: "The release version for the artifact"
+        required: true
+        default: "A.B.C"
+      developmentVersion:
+        description: "The new development version for the artifact"
+        required: true
+        default: "A.B.C-SNAPSHOT"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          server-id: 'github'
+      - name: Release
+        run: mvn --batch-mode clean release:prepare release:perform -DdryRun=${{github.event.inputs.dryRun}} -DreleaseVersion=${{github.event.inputs.releaseVersion}} -DdevelopmentVersion=${{github.event.inputs.developmentVersion}}
+        env:
+          GITHUB_TOKEN: ${{secrets.DEPLOY_GITHUB_TOKEN}}
+
