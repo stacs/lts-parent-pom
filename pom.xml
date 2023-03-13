@@ -18,6 +18,7 @@
     <properties>
         <scm.project.name>lts-parent-pom</scm.project.name>
         <spotless.version>2.31.0</spotless.version>
+        <spotless.branch>origin/main</spotless.branch>
 
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
@@ -54,7 +55,7 @@
                 <version>${spotless.version}</version>
                 <configuration>
                     <!-- Limit format enforcement to just the files changed by this feature branch -->
-                    <ratchetFrom>origin/main</ratchetFrom>
+                    <ratchetFrom>${spotless.branch}</ratchetFrom>
                     <java>
                         <googleJavaFormat/>
                     </java>
