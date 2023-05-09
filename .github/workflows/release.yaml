@@ -7,7 +7,7 @@ on:
         description: "Should the maven release plugin do a dry run"
         type: boolean
         required: true
-        default: false
+        default: true
       releaseVersion:
         description: "The release version for the artifact"
         required: true
@@ -31,6 +31,10 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
           server-id: 'github'
+      - name: Setup Git User
+        run: |
+          git config user.name "LTS Bot"
+          git config user.email "lts-devs@virginia.edu"
       - name: Release
         run: mvn --batch-mode clean release:prepare release:perform -DdryRun=${{github.event.inputs.dryRun}} -DreleaseVersion=${{github.event.inputs.releaseVersion}} -DdevelopmentVersion=${{github.event.inputs.developmentVersion}}
         env:
