@@ -19,24 +19,10 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: Set up JDK 21
-        uses: actions/setup-java@v3
-        with:
-          java-version: '21'
-          distribution: 'temurin'
-          server-id: 'github'
-      - name: Setup Git User
-        run: |
-          git config user.name "LTS Bot"
-          git config user.email "lts-devs@virginia.edu"
-      - name: Release
-        run: mvn --batch-mode clean release:prepare release:perform -DdryRun=${{github.event.inputs.dryRun}} -DreleaseVersion=${{github.event.inputs.releaseVersion}} -DdevelopmentVersion=${{github.event.inputs.developmentVersion}}
-        env:
-          GITHUB_TOKEN: ${{secrets.DEPLOY_GITHUB_TOKEN}}
+    uses: stacs/actions/.github/workflows/maven-release.yaml@LTI-234
+    secrets: inherit
+    with:
+      dryRun: ${{github.event.inputs.dryRun}}
+      releaseVersion: ${{github.event.inputs.releaseVersion}}
+      developmentVersion: ${{github.event.inputs.developmentVersion}}
 
