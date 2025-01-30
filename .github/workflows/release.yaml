@@ -19,7 +19,7 @@ on:
 
 jobs:
   build:
-    uses: stacs/actions/.github/workflows/maven-release.yaml@LTI-234
+    uses: stacs/actions/.github/workflows/maven-release.yaml@v1
     secrets: inherit
     with:
       dryRun: ${{inputs.dryRun}}

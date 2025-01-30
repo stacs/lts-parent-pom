@@ -4,5 +4,5 @@ on: [push]
 
 jobs:
   build:
-    uses: stacs/actions/.github/workflows/maven-deploy.yaml@LTI-234
+    uses: stacs/actions/.github/workflows/maven-deploy.yaml@v1
     secrets: inherit
