@@ -22,7 +22,7 @@ jobs:
     uses: stacs/actions/.github/workflows/maven-release.yaml@LTI-234
     secrets: inherit
     with:
-      dryRun: ${{github.event.inputs.dryRun}}
-      releaseVersion: ${{github.event.inputs.releaseVersion}}
-      developmentVersion: ${{github.event.inputs.developmentVersion}}
+      dryRun: ${{inputs.dryRun}}
+      releaseVersion: ${{inputs.releaseVersion}}
+      developmentVersion: ${{inputs.developmentVersion}}
 
