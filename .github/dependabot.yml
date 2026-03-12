@@ -9,3 +9,9 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "daily"
+    registries:
+      github:
+        type: "maven-repository"
+        url: "https://maven.pkg.github.com/stacs/maven-repo"
+        username: "x-access-token"
+        password: ${{secrets.DEPLOY_GITHUB_TOKEN}}
