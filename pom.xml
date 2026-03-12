@@ -15,7 +15,7 @@
 
     <properties>
         <scm.project.name>lts-parent-pom</scm.project.name>
-        <spotless.version>2.43.0</spotless.version>
+        <spotless.version>3.3.0</spotless.version>
         <spotless.branch>origin/main</spotless.branch>
 
         <maven.compiler.source>21</maven.compiler.source>
