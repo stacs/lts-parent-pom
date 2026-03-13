@@ -5,13 +5,13 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>4.0.3</version>
+        <version>3.5.11</version>
     </parent>
 
     <groupId>edu.virginia.its.lts</groupId>
     <artifactId>parent-pom</artifactId>
     <packaging>pom</packaging>
-    <version>4.0.4-SNAPSHOT</version>
+    <version>3.5.11-SNAPSHOT</version>
 
     <properties>
         <scm.project.name>lts-parent-pom</scm.project.name>
