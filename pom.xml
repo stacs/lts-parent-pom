@@ -11,7 +11,7 @@
     <groupId>edu.virginia.its.lts</groupId>
     <artifactId>parent-pom</artifactId>
     <packaging>pom</packaging>
-    <version>3.5.11-SNAPSHOT</version>
+    <version>3.5.11</version>
 
     <properties>
         <scm.project.name>lts-parent-pom</scm.project.name>
@@ -42,7 +42,7 @@
         <connection>scm:git:https://github.com/stacs/${scm.project.name}.git</connection>
         <developerConnection>scm:git:https://github.com/stacs/${scm.project.name}.git</developerConnection>
         <url>https://github.com/stacs/${scm.project.name}</url>
-      <tag>HEAD</tag>
+      <tag>v3.5.11</tag>
   </scm>
 
     <build>
